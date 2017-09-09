@@ -2,6 +2,9 @@ import flask
 import requests
 from bs4 import BeautifulSoup
 
+
+def sign():
+
     #登录及签到post数据准备
     s = requests.session()
     log_data = {'loginPhone':'18209347100','loginPassword':'ssh19198918'} #登录post数据
