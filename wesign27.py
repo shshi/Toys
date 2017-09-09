@@ -1,16 +1,9 @@
 from flask import Flask
-application = Flask(__name__)
-
-@application.route("/")
-def hello():
-    return "Hello World!"
-
-if __name__ == "__main__":
-    application.run()
-
-
 import requests
 from bs4 import BeautifulSoup
+
+application = Flask(__name__)
+@application.route("/")
 
 def sign():
 
@@ -33,8 +26,11 @@ def sign():
     soup = BeautifulSoup(page,"html.parser")
     txt1 = soup.find_all('a', attrs={"class":"btn-sign"})[0].get_text() #提取"已签到"文本
     txt2 = soup.find_all('p', attrs={"class":"p2"})[0].get_text() #提取"连续签到n天"文本
-    print txt1+', '+txt2
+    return txt1+', '+txt2
 
 sign()
+
+if __name__ == "__main__":
+    application.run()
 
 
