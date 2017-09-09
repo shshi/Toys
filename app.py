@@ -1,10 +1,9 @@
-from flask import Flask
+import flask
 import requests
 from bs4 import BeautifulSoup
 
-application = Flask(__name__)
-@application.route("/")
-
+app = flask.Flask(__name__)
+@app.route("/")
 def sign():
 
     #登录及签到post数据准备
@@ -20,7 +19,6 @@ def sign():
 
     #签到操作
     s.post('http://talent.woordee.com/front/truser/sign', sgn_data)
-    html = s.get('http://talent.woordee.com/front/truser/userCenter')
 
     #提取签到结果并打印
     soup = BeautifulSoup(page,"html.parser")
@@ -28,9 +26,6 @@ def sign():
     txt2 = soup.find_all('p', attrs={"class":"p2"})[0].get_text() #提取"连续签到n天"文本
     return txt1+', '+txt2
 
-sign()
-
 if __name__ == "__main__":
-    application.run()
-
+    app.run()
 
