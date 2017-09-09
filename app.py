@@ -1,3 +1,3 @@
 
-from flaskapp import app as application
+from wesign import app as application
 
