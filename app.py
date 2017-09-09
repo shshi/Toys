@@ -22,6 +22,5 @@ def sign():
     txt2 = soup.find_all('p', attrs={"class":"p2"})[0].get_text() 
     return txt1+', '+txt2
 
-if __name__ == "__main__":
-    app.run()
+sign()
 
