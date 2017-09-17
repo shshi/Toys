@@ -1,9 +1,0 @@
-gunicorn
-Flask
-certifi
-beautifulsoup4
-idna
-chardet
-requests
-urllib3
-
