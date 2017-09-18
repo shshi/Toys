@@ -18,7 +18,7 @@ for root, dirs, files in os.walk('.'):
             for i, ycbcr in enumerate(data):
                 y, cb, cr = ycbcr
                 #if 86 <= cb <= 117 and 140 <= cr <= 168: #多人引用版本，更严格
-                if 86 <= cb <= 127 and 130 <= cr < 168: #更宽松，但误判率较高
+                if 86 <= cb <= 127 and 130 <= cr < 168: #更宽松，漏网少，但误判率也随之升高
                     cnt += 1
             if cnt > w * h * 0.3:
                 yep = item + ' is a porno\n'
