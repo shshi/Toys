@@ -12,7 +12,12 @@ for root, dirs, files in os.walk('.'):
         if file.endswith('jpg') or file.endswith('jpeg') or file.endswith('gif') or file.endswith('png') or file.endswith('bmp'):
             item = root + '/' + file
             #print item
-            img = Image.open(item).convert('YCbCr')
+            try:
+                img = Image.open(item).convert('YCbCr')
+            except:
+                print item + 'error'
+                log.write('\n%s ERROR\n'%item)
+                break
             w, h = img.size
             data = img.getdata()
             cnt = 0
@@ -42,4 +47,4 @@ for root, dirs, files in os.walk('.'):
                 #print '%s %s a porn image.'%(item, 'is' if cnt > w * h * 0.3 else 'is not')
 log.write('finished.\n')
 print 'finished.\n'
-log.close()
+log.close()            
