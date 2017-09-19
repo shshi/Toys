@@ -1,11 +1,12 @@
-# -*- coding:utf-8 -*-
-import sys
+#-*-coding: utf-8 -*-
 import Image
 import os
 import shutil
-
+import sys
 
 log = open('record.log', 'a')
+log.write('\nchecking...\n')
+print '\nchecking...\n'
 for root, dirs, files in os.walk('.'):
     for file in files:
         if file.endswith('jpg') or file.endswith('jpeg') or file.endswith('gif') or file.endswith('png') or file.endswith('bmp'):
@@ -17,8 +18,8 @@ for root, dirs, files in os.walk('.'):
             cnt = 0
             for i, ycbcr in enumerate(data):
                 y, cb, cr = ycbcr
-                #if 86 <= cb <= 117 and 140 <= cr <= 168: #多人引用版本，更严格
-                if 86 <= cb <= 127 and 130 <= cr < 168: #更宽松，漏网少，但误判率也随之升高
+                if 86 <= cb <= 117 and 140 <= cr <= 168:
+                #if 86 <= cb <= 127 and 130 <= cr < 168:
                     cnt += 1
             if cnt > w * h * 0.3:
                 yep = item + ' is a porno\n'
@@ -30,7 +31,7 @@ for root, dirs, files in os.walk('.'):
                         print exist
                         log.write(exist)
                     else:
-                        shutil.copy(item, './suckout/')#如果要移动文件用shutil.move
+                        shutil.copy(item, './suckout/')
                 else:
                     os.mkdir('./suckout')
                     shutil.copy(item, './suckout/')
@@ -39,5 +40,6 @@ for root, dirs, files in os.walk('.'):
                 print nope
                 log.write(nope)
                 #print '%s %s a porn image.'%(item, 'is' if cnt > w * h * 0.3 else 'is not')
+log.write('finished.\n')
+print 'finished.\n'
 log.close()
-                
