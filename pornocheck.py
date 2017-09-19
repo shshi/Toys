@@ -16,7 +16,7 @@ for root, dirs, files in os.walk('.'):
                 img = Image.open(item).convert('YCbCr')
             except:
                 print item + 'error'
-                log.write('\n%s ERROR\n'%item)
+                log.write('%s ERROR\n'%item)
                 break
             w, h = img.size
             data = img.getdata()
@@ -32,7 +32,7 @@ for root, dirs, files in os.walk('.'):
                 log.write(yep)
                 if os.path.exists('./suckout'):
                     if os.path.exists('./suckout/%s'%file):
-                        exist = "name %s exists in suckout already\n"%item
+                        exist = "%s exists in suckout already\n"%item
                         print exist
                         log.write(exist)
                     else:
