@@ -17,7 +17,7 @@ for root, dirs, files in os.walk('.'):
             except:
                 print item + 'error'
                 log.write('%s ERROR\n'%item)
-                break
+                continue
             w, h = img.size
             data = img.getdata()
             cnt = 0
