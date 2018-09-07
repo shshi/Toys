@@ -1,13 +1,17 @@
 #-*-coding: utf-8 -*-
-import Image
+from PIL import Image
 import os
 import shutil
 import sys
+import time
 
+usb_path = "G:"
+while not os.path.exists(usb_path):
+    time.sleep(3)
 log = open('record.log', 'a')
 log.write('\nchecking...\n')
 print '\nchecking...\n'
-for root, dirs, files in os.walk('.'):
+for root, dirs, files in os.walk(usb_path):
     for file in files:
         if file.endswith('jpg') or file.endswith('jpeg') or file.endswith('gif') or file.endswith('png') or file.endswith('bmp'):
             item = root + '/' + file
