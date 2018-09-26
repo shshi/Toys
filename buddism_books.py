@@ -26,7 +26,7 @@ for i in link_list:
     name = i.split("/")[2]
     if os.path.exists("./Buddism Books/"):
         if os.path.exists("./Buddism Books/%s"%name):
-            print "%s Exists already"%name
+            print "%s exists already"%name
         else:
             print "Downloading %s"%name
             urllib.urlretrieve(prefix+i, "./Buddism Books/%s"%name)
