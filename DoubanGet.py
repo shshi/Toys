@@ -6,6 +6,7 @@
 #===========================================================
 import re
 import requests
+import time
 #import urllib.request as u
 #import urllib.parse as p
 
@@ -13,20 +14,19 @@ def getList():
     
     #usrname = input('Please input your Douban username: ')
     #password = input('Please input your password: ')
-    #DoubanID = input('Please input the Douban id you wish to check: ')
+    DoubanID = input('Please input the Douban id you wish to check: ')
     
     usrname="shishaohua7@163.com"
     password="Ssh19198918"
-    DoubanID="bzjiang_n"
+    #DoubanID="bzjiang_n"
     
     logname='%s.log'%DoubanID
     f = open(logname,'w',encoding='utf-8')
     
     s = requests.session()
-    headers_login = {"Host":"accounts.douban.com", "Connection":"keep-alive", "Content-Length":"73",
-                "Upgrade-Insecure-Requests":"1", "Origin":"https://accounts.douban.com", "X-Requested-With":"XMLHttpRequest",
-                "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
-                "Accept":"application/json",
+    headers_login = {"Host":"accounts.douban.com", "Connection":"keep-alive", "Content-Length":"74", "Accept":"application/json",
+                "Origin":"https://accounts.douban.com", "X-Requested-With":"XMLHttpRequest",
+                "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",               
                 "Content-Type": "application/x-www-form-urlencoded", "Referer":"https://accounts.douban.com/passport/login",
                 "Accept-Encoding":"gzip, deflate, br",
                 "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8"
@@ -42,6 +42,13 @@ def getList():
                 "Upgrade-Insecure-Requests":"1", 
                 "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
                 "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", "Referer":"https://www.douban.com/people/"+DoubanID+"/",
+                "Accept-Encoding":"gzip, deflate, br",
+                "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8"
+                }
+    headers_logout = {"Host":"www.douban.com", "Connection":"keep-alive", 
+                "Upgrade-Insecure-Requests":"1", 
+                "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36",
+                "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",                
                 "Accept-Encoding":"gzip, deflate, br",
                 "Accept-Language":"zh-CN,zh;q=0.9,en;q=0.8"
                 }
@@ -101,6 +108,7 @@ def getList():
                     list_all=re.findall(re_comp,req)
                     
                     print (list_all)
+                    time.sleep(3)
                     for item in list_all:
                         num+=1
                         f.write('%d. %s\n'%(num,item))
@@ -137,7 +145,7 @@ def getList():
                     list_all=re.findall(re_comp,req)
                     
                     print (list_all)
-
+                    time.sleep(3)
                     for item in list_all:
                         num+=1
                         f.write('%d. %s\n'%(num,item))
@@ -175,7 +183,7 @@ def getList():
                     list_all=re.findall(re_comp,req)
                     
                     print (list_all)
-                    
+                    time.sleep(3)
                     for item in list_all:
                         num+=1
                         f.write('%d. %s\n'%(num,item))
@@ -217,7 +225,7 @@ def getList():
                     list_all.remove('{{= title}}')
                     
                     print (list_all)
-                    
+                    time.sleep(3)
                     for item in list_all:
                         num+=1
                         f.write('%d. %s\n'%(num,item))
@@ -258,6 +266,7 @@ def getList():
                     list_all.remove('{{= title}}')
                     
                     print (list_all)
+                    time.sleep(3)
                     for item in list_all:
                         num+=1
                         f.write('%d. %s\n'%(num,item))
@@ -296,7 +305,7 @@ def getList():
                     list_all.remove('{{= title}}')
                     
                     print (list_all)
-
+                    time.sleep(3)
                     for item in list_all:
                         num+=1
                         f.write('%d. %s\n'%(num,item))
@@ -304,6 +313,7 @@ def getList():
                     #print ("yes!")
                 else:
                     print ("fnished")
+    s.get("https://www.douban.com/accounts/logout?source=main&ck=gvDI", headers=headers_logout)
     f.close()
    
 getList()
