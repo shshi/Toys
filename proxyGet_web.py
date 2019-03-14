@@ -17,7 +17,20 @@ def getList():
     SSR_list=base64.b64decode(html).decode('utf-8')
     SSR_list=SSR_list.strip()   
     lst=SSR_list.splitlines()
-    list_sum="<h4>嗨，我是少华，以下代理服务器信息每三天更新一次。Shadowsocks的获取地址: https://github.com/shadowsocks/shadowsocks-windows/releases。如果有问题请联系我：shi.sh@foxmail.com. 翻墙快乐！</h4>"
+    list_sum='''
+      <head>
+    <title>
+      少华的翻墙乐园
+    </title>
+  </head>
+  <body>
+    <p>
+		<h4>嗨，我是少华，以下代理服务器信息每三天更新一次。</h4>
+	</p>
+    <p>Shadowsocks的获取地址: https://github.com/shadowsocks/shadowsocks-windows/releases</p>
+    <p>如果有问题请联系我：shi.sh@foxmail.com</p>
+    <p>翻墙快乐！</p>
+  </body>'''
     for i in lst:
         try:
             base64_encode_str = i[6:]
