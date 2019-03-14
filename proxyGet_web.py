@@ -33,7 +33,7 @@ def getList():
 	
 	<style>
 	table, th, td {
-	  border: 1px solid black;
+	  font-family: arial, sans-serif;
 	  border-collapse: collapse;
 	}
 
