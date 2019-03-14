@@ -49,7 +49,7 @@ def getList():
             remarks = base64_decode(param_dic['remarks'])
             group = base64_decode(param_dic['group'])
 
-            lst_item='server: %s, port: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s\r\n'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
+            lst_item='服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s\r\n'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
             list_sum+=lst_item
             
         except Exception as e:
