@@ -34,18 +34,18 @@ def getList():
 	<style>
 	table, th, td {
 	font-family: arial, sans-serif;
-	border: 1px solid #dddddd;
+	border: 1px solid white;
 	border-collapse: collapse;
 	}
 
 	table tr:nth-child(even) {
-	background-color: #eee;
+	background-color: #dddddd;
 	}
 	table tr:nth-child(odd) {
 	background-color: #fff;
 	}
 	table th {
-	background-color: #3c3c3c;
+	background-color: #4f4f4f;
 	color: white;
 	}
 	</style>
