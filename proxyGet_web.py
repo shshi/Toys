@@ -42,11 +42,9 @@ def getList():
 			<th>备注</th>
 			<th>分组</th>
 		</tr>
-		<tr>	
 		
 '''
     list_postfix='''
-    		</tr>
 	</table>
 </body>'''
     for i in lst:
@@ -82,7 +80,20 @@ def getList():
             remarks = base64_decode(param_dic['remarks'])
             group = base64_decode(param_dic['group'])
 
-            lst_item='<td>服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s</td>'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
+            lst_item='''
+			<tr>
+				<td>%s</td>	<!--服务器地址-->
+				<td>%s</td>	<!--端口-->
+				<td>%s</td>	<!--协议-->
+				<td>%s</td>	<!--加密方法-->
+				<td>%s</td>	<!--密码-->
+				<td>%s</td>	<!--混淆-->
+				<td>%s</td>	<!--混淆参数-->
+				<td>%s<td>	<!--协议参数-->
+				<td>%s<td>	<!--备注-->
+				<td>%s</td>	<!--分组-->
+			</tr>
+			'''%(server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
             #lst_item='<td>服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s</td>'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
             list_sum+=lst_item
             
