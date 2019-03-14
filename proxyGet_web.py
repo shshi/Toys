@@ -2,8 +2,8 @@
 import flask
 import urllib.request as u
 import base64
-from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+#from flask import Flask, render_template, request, redirect, url_for
+#from flask_sqlalchemy import SQLAlchemy
 
 app = flask.Flask(__name__)
 @app.route("/")
@@ -29,6 +29,25 @@ def getList():
 	</p>
 	<p>Shadowsocks的获取地址: https://github.com/shadowsocks/shadowsocks-windows/releases. 如果有问题请联系：shi.sh@foxmail.com</p>
 	<p>翻墙快乐！</p>
+	<table border="1">
+		<tr>
+			<th>服务器</th>
+			<th>端口</th>
+			<th>协议</th>
+			<th>加密方法</th>
+			<th>密码</th>
+			<th>混淆</th>
+			<th>混淆参数</th>
+			<th>协议参数</th>
+			<th>备注</th>
+			<th>分组</th>
+		</tr>
+		<tr>	
+		
+'''
+    list_postfix='''
+    		</tr>
+	</table>
 </body>'''
     for i in lst:
         try:
@@ -63,12 +82,14 @@ def getList():
             remarks = base64_decode(param_dic['remarks'])
             group = base64_decode(param_dic['group'])
 
-            lst_item='服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s\r\n'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
-            list_sum+=lst_item
+            lst_item='<td>服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s</td>'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
+            #lst_item='<td>服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s</td>'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
+	    list_sum+=lst_item
             
         except Exception as e:
             print (e)
             continue
+    list_sum+=list_postfix
     print (list_sum)
     return list_sum
 def fill_padding(base64_encode_str):
