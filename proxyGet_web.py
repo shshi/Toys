@@ -15,7 +15,7 @@ def getList():
     SSR_list=base64.b64decode(html).decode('utf-8')
     SSR_list=SSR_list.strip()   
     lst=SSR_list.splitlines()
-    list_sum="<h1>嗨，我是少华，以下代理服务器信息每三天更新一次。Shadowsocks的获取地址: https://github.com/shadowsocks/shadowsocks-windows/releases。如果有问题请联系我：shi.shaohua@foxmail.com. 翻墙快乐！</h1><p>"
+    list_sum="<h4>嗨，我是少华，以下代理服务器信息每三天更新一次。Shadowsocks的获取地址: https://github.com/shadowsocks/shadowsocks-windows/releases。如果有问题请联系我：shi.shaohua@foxmail.com. 翻墙快乐！</h4>"
     for i in lst:
         try:
             base64_encode_str = i[6:]
@@ -55,7 +55,6 @@ def getList():
         except Exception as e:
             print (e)
             continue
-    list_sum+="</p>"
     print (list_sum)
     return list_sum
 def fill_padding(base64_encode_str):
