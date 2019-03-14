@@ -32,20 +32,20 @@ def getList():
 	<p>Shadowsocks的获取地址: https://github.com/shadowsocks/shadowsocks-windows/releases. 如果有问题请联系：shi.sh@foxmail.com. 翻墙快乐！</p>
 	
 	<style>
-	table {
-	  font-family: arial, sans-serif;
+	table, th, td {
+	  border: 1px solid black;
 	  border-collapse: collapse;
-	  width: 100%;
 	}
 
-	td, th {
-	  border: 1px solid #dddddd;
-	  text-align: left;
-	  padding: 8px;
+	table tr:nth-child(even) {
+	  background-color: #eee;
 	}
-
-	tr:nth-child(even) {
-	  background-color: #dddddd;
+	table tr:nth-child(odd) {
+	 background-color: #fff;
+	}
+	table th {
+	  background-color: black;
+	  color: white;
 	}
 	</style>
 	
