@@ -45,7 +45,7 @@ def getList():
 	background-color: #fff;
 	}
 	table th {
-	background-color: black;
+	background-color: #3c3c3c;
 	color: white;
 	}
 	</style>
