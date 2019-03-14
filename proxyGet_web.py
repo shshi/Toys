@@ -89,8 +89,8 @@ def getList():
 				<td>%s</td>	<!--密码-->
 				<td>%s</td>	<!--混淆-->
 				<td>%s</td>	<!--混淆参数-->
-				<td>%s<td>	<!--协议参数-->
-				<td>%s<td>	<!--备注-->
+				<td>%s</td>	<!--协议参数-->
+				<td>%s</td>	<!--备注-->
 				<td>%s</td>	<!--分组-->
 			</tr>
 			'''%(server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
