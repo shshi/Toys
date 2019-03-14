@@ -35,7 +35,7 @@ def getList():
 	
 	table, th, td {
 	font-family: arial, sans-serif;
-	border: 1px solid white;
+	border: 1px solid #dddddd;
 	border-collapse: collapse;
 	}
 
