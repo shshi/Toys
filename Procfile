@@ -1,1 +1,1 @@
-web: gunicorn websign:app --log-file -
+web: gunicorn proxyGet_web:app --log-file -
