@@ -4,12 +4,8 @@
 # E-mail:shi.sh@foxmail.com
 # Modified Date: 2019-03-12
 #===========================================================
-import re
-import requests
-import time
 import urllib.request as u
 import base64
-#Reference: https://www.jianshu.com/p/81b1632bea7f
 
 def getList():
     #f = open("proxyList.log",'w',encoding='utf-8')
@@ -19,23 +15,15 @@ def getList():
 
     SSR_list=base64.b64decode(html).decode('utf-8')
     SSR_list=SSR_list.strip()   
-    #SSR_list=SSR_list.replace('ssr://','')
-    #f.write(SSR_list)   
     lst=SSR_list.splitlines()
-    #print(lst)
-       
+    
     for i in lst:
         try:
             parse(i)
-            #i=base64.b64decode(str(i[6:])).decode('utf-8')
-            #print (i)
         except Exception as e:
-            #print (e)
             continue
 
-    #f.close()
-
-def parse(ssr):
+            def parse(ssr):
     base64_encode_str = ssr[6:]
     parse_ssr(base64_encode_str)
 
@@ -72,11 +60,7 @@ def parse_ssr(base64_encode_str):
    remarks = base64_decode(param_dic['remarks'])
    group = base64_decode(param_dic['group'])
 
-   #print("解析结果:")
-
    print('server: %s, port: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s\n'
-         % (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group))
-   f.write('server: %s, port: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s\n'
          % (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group))
 
 
@@ -96,8 +80,5 @@ def base64_decode(base64_encode_str):
 
 
 if __name__ == '__main__':
-    f = open("proxyList.log",'w',encoding='utf-8')
     getList()
-    f.close()
     print("All finished")
-    time.sleep(30)
