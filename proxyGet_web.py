@@ -19,6 +19,7 @@ def getList():
     lst=SSR_list.splitlines()
     list_sum='''
 <!DOCTYPE html>
+<html>
 <head>
 <title>
 	少华的翻墙乐园
@@ -46,7 +47,8 @@ def getList():
 '''
     list_postfix='''
 	</table>
-</body>'''
+</body>
+<html>'''
     for i in lst:
         try:
             base64_encode_str = i[6:]
