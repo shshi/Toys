@@ -18,6 +18,7 @@ def getList():
     SSR_list=SSR_list.strip()   
     lst=SSR_list.splitlines()
     list_sum='''
+<!DOCTYPE html>
 <head>
 <title>
 	少华的翻墙乐园
