@@ -9,7 +9,8 @@ import requests
 import time
 import urllib.request as u
 import base64
-#Reference: https://www.jianshu.com/p/81b1632bea7f
+#code reference: https://www.jianshu.com/p/81b1632bea7f
+#Source: https://www.ssrtool.com/tool/free_ssr
 
 def getList():
     #f = open("proxyList.log",'w',encoding='utf-8')
