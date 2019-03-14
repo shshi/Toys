@@ -56,6 +56,7 @@ def getList():
             print (e)
             continue
     print (list_sum)
+    list_sum+="嗨，我是少华，如果有任何问题请联系我：shi.shaohua@foxmail.com. \n\r翻墙快乐！\n\r"
     return list_sum
 def fill_padding(base64_encode_str):
 
