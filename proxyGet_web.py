@@ -49,16 +49,16 @@ def getList():
 	
 	<table>
 		<tr>
-			<th>服务器</th>
-			<th>端口</th>
-			<th>协议</th>
-			<th>加密方法</th>
-			<th>密码</th>
-			<th>混淆</th>
-			<th>混淆参数</th>
-			<th>协议参数</th>
-			<th>备注</th>
-			<th>分组</th>
+			<th>服务器<br>Server Addr</th>
+			<th>端口<br>Server Port</th>
+			<th>协议<br>Protocol</th>
+			<th>加密方法<br>Encyption</th>
+			<th>密码<br>Password</th>
+			<th>混淆<br>obfs</th>
+			<th>混淆参数<br>obfsParam</th>
+			<th>协议参数<br>ProtoParam</th>
+			<th>备注<br>Remarks</th>
+			<th>分组<br>Group</th>
 		</tr>
 		
 '''
