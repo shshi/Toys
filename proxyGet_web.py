@@ -19,8 +19,8 @@ def getList():
     lst=SSR_list.splitlines()
 
     ip_visitor = request.remote_addr
-    response = u.urlopen('http://api.hostip.info/get_html.php?ip=%s&position=true'%ip_visitor).read()
-    return response
+    #response = u.urlopen('http://api.hostip.info/get_html.php?ip=%s&position=true'%ip_visitor).read()
+    #return response
     list_sum='''
 <!DOCTYPE html>
 <html>
@@ -68,7 +68,7 @@ def getList():
 			<th>分组<br>Group</th>
 		</tr>
 		
-'''%response
+'''%ip_visitor
     list_postfix='''
 	</table>
 </body>
