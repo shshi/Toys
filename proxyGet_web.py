@@ -19,7 +19,10 @@ def getList():
     lst=SSR_list.splitlines()
     try:
         #ip_visitor = request.remote_addr
-        ip_visitor = jsonify(origin=request.headers.get('X-Forwarded-For', request.remote_addr))
+        if request.headers.getlist("X-Forwarded-For"):
+            ip_visitor = request.headers.getlist("X-Forwarded-For")[0]
+        else:
+            ip_visitor = request.remote_addr
 	print (ip_visitor)
         response = u.urlopen("http://ip-api.com/json/%s"%ip_visitor).read()
         raw_geo=response.decode("ascii").replace("\"","").replace("{","").replace("}","")
