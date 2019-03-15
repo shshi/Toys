@@ -51,9 +51,9 @@ def getList():
 	<table>
 		<tr>
 			<th>服务器<br>Server Addr</th>
-			<th>端口<br>Server Port</th>
+			<th>端口<br>Port</th>
 			<th>协议<br>Protocol</th>
-			<th>加密方法<br>Encyption</th>
+			<th>加密方法<br>Encryption</th>
 			<th>密码<br>Password</th>
 			<th>混淆<br>obfs</th>
 			<th>混淆参数<br>obfsParam</th>
