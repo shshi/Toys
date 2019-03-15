@@ -17,6 +17,9 @@ def getList():
     SSR_list=base64.b64decode(html).decode('utf-8')
     SSR_list=SSR_list.strip()   
     lst=SSR_list.splitlines()
+
+    ip_visitor = request.remote_addr
+    response = u.urlopen('http://api.hostip.info/get_html.php?ip=%s&position=true'%ip_visitor).read()
     list_sum='''
 <!DOCTYPE html>
 <html>
@@ -26,7 +29,7 @@ def getList():
 </title>
 </head>
 <body>
-	<h4>嗨，我是少华，以下代理服务器信息每三天自动更新一次，欢迎使用。</h4>
+	<h4>嗨，来自%s的朋友，我是少华，以下代理服务器信息每三天自动更新一次，欢迎使用。</h4>
 	<p>Shadowsocks的获取地址: https://github.com/shadowsocks/shadowsocks-windows/releases. 如果有问题请联系：shi.sh@foxmail.com</p>
 	<style>	
 	table, th, td {
@@ -64,7 +67,7 @@ def getList():
 			<th>分组<br>Group</th>
 		</tr>
 		
-'''
+'''%response
     list_postfix='''
 	</table>
 </body>
@@ -117,14 +120,11 @@ def getList():
 			</tr>
 			'''%(server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
             #lst_item='<td>服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s</td>'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
-            list_sum+=lst_item
-            
+            list_sum+=lst_item           
         except Exception as e:
             print (e)
             continue
     list_sum+=list_postfix
-    ip_visitor = request.remote_addr
-    list_sum+=ip_visitor
     print (list_sum)
     return list_sum
 def fill_padding(base64_encode_str):
