@@ -88,6 +88,7 @@ def getList():
     list_postfix='''
 	</table>
 </body>
+<p>使用说明：在https://github.com/shadowsocks/shadowsocks-windows/releases下载Shadowsocks的最新版zip文件，解压后打开Shadowsocks，按照上表中对应输入服务器、端口和密码，核对加密方法后确定。在电脑下方托盘找到小飞机图标右击-->点击“启用系统代理”-->“系统代理模式”-->“全局模式”。如果小飞机变为蓝色说明翻墙成功，否则重新换一行服务器信息。</p>
 <html>'''
     for i in lst:
         try:
