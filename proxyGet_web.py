@@ -25,9 +25,10 @@ def getList():
         else:
             ip_visitor = request.remote_addr
         print (ip_visitor)
-        response = u.urlopen("http://ip.360.cn/IPQuery/ipquery?ip=%s"%ip_visitor).read()
+	#response = u.urlopen("http://ip-api.com/json/%s"%ip_visitor).read()
         #raw_geo=response.decode("ascii").replace("\"","").replace("{","").replace("}","")
         #geo = dict(toks.split(":") for toks in raw_geo.split(",") if toks)
+        response = u.urlopen("http://ip.360.cn/IPQuery/ipquery?ip=%s"%ip_visitor).read()
         geo = json.loads(response)
         city = geo['data']
         index=city.find('\t')
