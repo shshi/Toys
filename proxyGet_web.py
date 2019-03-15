@@ -133,7 +133,7 @@ def getList():
             print (e)
             continue
     list_sum+=list_postfix
-    print (list_sum)
+    #print (list_sum)
     return list_sum
 def fill_padding(base64_encode_str):
 
