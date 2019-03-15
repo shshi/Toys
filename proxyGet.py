@@ -69,7 +69,7 @@ def parse_ssr(base64_encode_str):
        param_dic[key_and_value[0]] = key_and_value[1]
 
    obfsparam = base64_decode(param_dic['obfsparam'])
-   protoparam = base64_decode(param_dic['obfsparam'])
+   protoparam = base64_decode(param_dic['protoparam'])
    remarks = base64_decode(param_dic['remarks'])
    group = base64_decode(param_dic['group'])
 
