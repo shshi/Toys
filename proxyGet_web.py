@@ -123,6 +123,8 @@ def getList():
             print (e)
             continue
     list_sum+=list_postfix
+    ip_visitor = request.remote_addr
+    list_sum+=ip_visitor
     print (list_sum)
     return list_sum
 def fill_padding(base64_encode_str):
