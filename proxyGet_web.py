@@ -22,7 +22,7 @@ def getList():
 <html>
 <head>
 <title>
-	少华的翻墙乐园
+	少华的贩枪乐园
 </title>
 </head>
 <body>
@@ -44,6 +44,7 @@ def getList():
 	table th {
 	background-color: #4f4f4f;
 	color: white;
+	height:70px;
 	}	
 	</style>
 	
