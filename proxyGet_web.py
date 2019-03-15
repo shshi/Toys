@@ -23,7 +23,7 @@ def getList():
             ip_visitor = request.headers.getlist("X-Forwarded-For")[0]
         else:
             ip_visitor = request.remote_addr
-	print (ip_visitor)
+        print (ip_visitor)
         response = u.urlopen("http://ip-api.com/json/%s"%ip_visitor).read()
         raw_geo=response.decode("ascii").replace("\"","").replace("{","").replace("}","")
         geo = dict(toks.split(":") for toks in raw_geo.split(",") if toks)
