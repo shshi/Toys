@@ -2,7 +2,7 @@
 import flask
 import urllib.request as u
 import base64
-from flask import Flask, render_template, request, redirect, url_for
+#from flask import Flask, render_template, request, redirect, url_for
 #from flask_sqlalchemy import SQLAlchemy
 
 app = flask.Flask(__name__)
@@ -17,10 +17,16 @@ def getList():
     SSR_list=base64.b64decode(html).decode('utf-8')
     SSR_list=SSR_list.strip()   
     lst=SSR_list.splitlines()
-
-    ip_visitor = request.remote_addr
-    #response = u.urlopen('http://api.hostip.info/get_html.php?ip=%s&position=true'%ip_visitor).read()
-    #return response
+    try:
+        ip_visitor = request.remote_addr
+        response = u.urlopen("http://ip-api.com/json/%s"%ip_visitor).read()
+        raw_geo=response.decode("ascii").replace("\"","").replace("{","").replace("}","")
+        geo = dict(toks.split(":") for toks in raw_geo.split(",") if toks)
+	city = geo['city']
+	if city=='':
+	    city="围城里"
+    except:
+	city="围城里"
     list_sum='''
 <!DOCTYPE html>
 <html>
@@ -68,7 +74,7 @@ def getList():
 			<th>分组<br>Group</th>
 		</tr>
 		
-'''%ip_visitor
+'''%city
     list_postfix='''
 	</table>
 </body>
