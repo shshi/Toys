@@ -25,7 +25,8 @@ def getList():
         city = geo['city']
         if city=='':
             city="围城里"
-    except:
+    except Exception as e:
+        print (e)
         city="围城里"
     list_sum='''
 <!DOCTYPE html>
