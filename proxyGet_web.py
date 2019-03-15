@@ -2,7 +2,6 @@
 import flask
 import urllib.request as u
 import base64
-import geoip2.database
 from flask import Flask, render_template, request, redirect, url_for
 #from flask_sqlalchemy import SQLAlchemy
 
@@ -124,11 +123,8 @@ def getList():
             print (e)
             continue
     list_sum+=list_postfix
-    reader = geoip2.database.Reader('./GeoLite2-City.mmdb')
     ip_visitor = request.remote_addr
-    response = reader.city(ip_visitor)
-    city= "城市：{}({})".format(response.city.name, response.city.names["zh-CN"])
-    list_sum+=city
+    list_sum+=ip_visitor
     print (list_sum)
     return list_sum
 def fill_padding(base64_encode_str):
