@@ -88,10 +88,20 @@ def getList():
 	</table>
 </body>
 <p style="font-size:14px">------<br>* 使用说明：在https://github.com/shadowsocks/shadowsocks-windows/releases下载Shadowsocks的最新版zip文件，解压后打开Shadowsocks，按照上表对应输入服务器、端口和密码，核对加密方法后确定。在电脑下方托盘找到小飞机图标右击-->点击“启用系统代理”，“系统代理模式”-->“全局模式”。如果小飞机变为蓝色说明翻墙成功，否则重新换一行服务器信息。<br>* 建议添加多个服务器信息，方便用网不畅时切换服务器。右击小飞机图标可切换。</p>
+<br>
+<br>
 <div align="center" ><a style=" color:black; font-size:30px;">数据不易&nbsp;&nbsp;友情打赏</a></div>
+<br>
 <div align="center"><img src="https://wx4.sinaimg.cn/mw690/4d20f2cfgy1g140et5negj209m09mabr.jpg" width="15%"><img src="https://wx2.sinaimg.cn/mw690/4d20f2cfgy1g140et5ke9j20ee0eemyr.jpg" width="15%"></div>
 <div align="center" ><a href = "https://wx4.sinaimg.cn/mw690/4d20f2cfgy1g140et5negj209m09mabr.jpg" style=" color:#c6a300; font-size:30px;">支付宝点我</a><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><a href = "https://wx2.sinaimg.cn/mw690/4d20f2cfgy1g140et5ke9j20ee0eemyr.jpg" style=" color:#c6a300; font-size:30px;">微信点我</a></div>
-<html>'''
+<html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>'''
     for i in lst:
         try:
             base64_encode_str = i[6:]
