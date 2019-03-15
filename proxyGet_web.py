@@ -120,6 +120,8 @@ def getList():
             obfsparam = base64_decode(param_dic['obfsparam'])
             protoparam = base64_decode(param_dic['obfsparam'])
             remarks = base64_decode(param_dic['remarks'])
+            if 'SSRTOOL_' in remarks:
+                remarks=remarks.replace('SSRTOOL_','')
             group = base64_decode(param_dic['group'])
 
             lst_item='''
