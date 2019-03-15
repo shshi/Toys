@@ -126,7 +126,7 @@ def getList():
     ip_visitor = request.remote_addr
     list_sum+=ip_visitor
     print (list_sum)
-    return list_sum
+    return ip_visitor
 def fill_padding(base64_encode_str):
 
    need_padding = len(base64_encode_str) % 4 != 0
