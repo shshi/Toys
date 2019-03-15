@@ -118,7 +118,7 @@ def getList():
                param_dic[key_and_value[0]] = key_and_value[1]
 
             obfsparam = base64_decode(param_dic['obfsparam'])
-            protoparam = base64_decode(param_dic['obfsparam'])
+            protoparam = base64_decode(param_dic['protoparam'])
             remarks = base64_decode(param_dic['remarks'])
             if 'SSRTOOL_' in remarks:
                 remarks=remarks.replace('SSRTOOL_','')
