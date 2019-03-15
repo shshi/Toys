@@ -24,9 +24,9 @@ def getList():
         geo = dict(toks.split(":") for toks in raw_geo.split(",") if toks)
         city = geo['city']
         if city=='':
-	    city="围城里"
+            city="围城里"
     except:
-	city="围城里"
+        city="围城里"
     list_sum='''
 <!DOCTYPE html>
 <html>
