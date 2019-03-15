@@ -20,6 +20,7 @@ def getList():
 
     ip_visitor = request.remote_addr
     response = u.urlopen('http://api.hostip.info/get_html.php?ip=%s&position=true'%ip_visitor).read()
+    return response
     list_sum='''
 <!DOCTYPE html>
 <html>
