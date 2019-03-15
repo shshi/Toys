@@ -28,9 +28,9 @@ def getList():
         response = u.urlopen("http://ip.360.cn/IPQuery/ipquery?ip=%s"%ip_visitor).read()
         #raw_geo=response.decode("ascii").replace("\"","").replace("{","").replace("}","")
         #geo = dict(toks.split(":") for toks in raw_geo.split(",") if toks)
-	geo = json.loads(response)
+        geo = json.loads(response)
         city = geo['data']
-	index=city.find('\t')
+        index=city.find('\t')
         if index>0:
             city = city.replace(city[index:],'')
     except Exception as e:
