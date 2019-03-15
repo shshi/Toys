@@ -2,6 +2,7 @@
 import flask
 import urllib.request as u
 import base64
+import json
 from flask import Flask, render_template, request, redirect, url_for
 #from flask_sqlalchemy import SQLAlchemy
 
@@ -24,12 +25,14 @@ def getList():
         else:
             ip_visitor = request.remote_addr
         print (ip_visitor)
-        response = u.urlopen("http://ip-api.com/json/%s"%ip_visitor).read()
-        raw_geo=response.decode("ascii").replace("\"","").replace("{","").replace("}","")
-        geo = dict(toks.split(":") for toks in raw_geo.split(",") if toks)
-        city = geo['city']
-        if city=='':
-            city="围城里"
+        response = u.urlopen("http://ip.360.cn/IPQuery/ipquery?ip=%s"%ip_visitor).read()
+        #raw_geo=response.decode("ascii").replace("\"","").replace("{","").replace("}","")
+        #geo = dict(toks.split(":") for toks in raw_geo.split(",") if toks)
+	geo = json.loads(response)
+        city = geo['data']
+	index=city.find('\t')
+        if index>0:
+            city = city.replace(city[index:],'')
     except Exception as e:
         print (e)
         city="围城里"
