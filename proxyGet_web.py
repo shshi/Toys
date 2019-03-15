@@ -26,9 +26,7 @@ def getList():
 </title>
 </head>
 <body>
-	<p>
 		<h4>嗨，我是少华，以下代理服务器信息每三天更新一次，欢迎使用。</h4>
-	</p>
 	<p>Shadowsocks的获取地址: https://github.com/shadowsocks/shadowsocks-windows/releases. 如果有问题请联系：shi.sh@foxmail.com. 翻墙快乐！</p>
 	
 	<style>
