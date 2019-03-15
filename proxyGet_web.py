@@ -75,7 +75,7 @@ def getList():
 			<th>分组<br>Group</th>
 		</tr>
 		
-'''%city
+'''%ip_visitor
     list_postfix='''
 	</table>
 </body>
