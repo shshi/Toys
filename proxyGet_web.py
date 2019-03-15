@@ -22,8 +22,8 @@ def getList():
         response = u.urlopen("http://ip-api.com/json/%s"%ip_visitor).read()
         raw_geo=response.decode("ascii").replace("\"","").replace("{","").replace("}","")
         geo = dict(toks.split(":") for toks in raw_geo.split(",") if toks)
-	city = geo['city']
-	if city=='':
+        city = geo['city']
+        if city=='':
 	    city="围城里"
     except:
 	city="围城里"
