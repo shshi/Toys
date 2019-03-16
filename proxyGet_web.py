@@ -84,7 +84,7 @@ def getList():
 			<th>协议<br>Protocol</th>			
 			<th>备注<br>Remarks</th>
 		</tr>		
-'''%city
+'''
     list_postfix='''
 	</table>
 </body>
