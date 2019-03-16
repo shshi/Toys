@@ -70,7 +70,7 @@ def getList():
 	}	
 	</style>
 	
-	<table>
+	<table align="center">
 		<tr>
 			<th>服务器<br>Server Addr.</th>
 			<th>端口<br>Port</th>
