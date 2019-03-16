@@ -1,4 +1,4 @@
-gunicorn==*
-Flask==*
-requests==*
-Flask-SQLAlchemy==*
+gunicorn==19.9.0
+Flask==1.0.2
+requests==2.21.0
+Flask-SQLAlchemy==2.3.1
