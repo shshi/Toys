@@ -47,7 +47,7 @@ def getList():
 </head>
 <body>
 	<h4>嗨，来自%s的朋友，我是少华，以下代理服务器信息每三天自动更新一次，欢迎体验如丝般顺滑的外网感受。</h4>
-	<p>使用方法见表尾。如果有问题请联系：shi.sh@foxmail.com</p>
+	<p>使用方法见表尾，如果有问题请联系：shi.sh@foxmail.com</p>
 	<style>	
 	table, th, td {
 	font-family: arial, sans-serif;
