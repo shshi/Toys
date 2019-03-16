@@ -89,7 +89,7 @@ def getList():
 (Windows)或<a href = "https://github.com/shadowsocks/ShadowsocksX-NG/releases" style=" color:#4f4f4f">https://github.com/shadowsocks/ShadowsocksX-NG/releases</a>
 (MacOS)下载Shadowsocks的最新版zip文件，解压后打开Shadowsocks，按照上表提供的信息输入对应的服务器、端口和密码，核对加密方法后确定。
 点击任务栏托盘的小飞机图标，启用“启用系统代理”，“系统代理模式”选择为“全局模式”。打开浏览器验证是否成功，否则重新换一行服务器信息。
-<br>* 建议添加多个服务器信息，方便用网不畅时切换服务器。右击小飞机图标可切换。</p>
+<br>* 建议添加多个服务器信息，方便用网不畅时快捷切换服务器。</p>
 <br>
 <br>
 <br>
