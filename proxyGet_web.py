@@ -4,7 +4,7 @@ import urllib.request as u
 import base64
 import json
 from flask import Flask, render_template, request, redirect, url_for
-#from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 app = flask.Flask(__name__)
 @app.route("/")
