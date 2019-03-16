@@ -46,7 +46,7 @@ def getList():
 </title>
 </head>
 <body>
-	<h4>嗨，来自%s的朋友，我是少华，以下代理服务器信息每三天自动更新一次，欢迎体验如丝般顺滑的感受。</h4>
+	<h4>嗨，来自%s的朋友，我是少华，以下代理服务器信息每三天自动更新一次，欢迎体验如丝般顺滑的外网感受。</h4>
 	<p>如果有问题请联系：shi.sh@foxmail.com</p>
 	<style>	
 	table, th, td {
@@ -74,12 +74,9 @@ def getList():
 		<tr>
 			<th>服务器<br>Server Addr.</th>
 			<th>端口<br>Port</th>
-			<th>协议<br>Protocol</th>
+			<th>密码<br>Password</th>			
 			<th width="200">加密方法<br>Encryption</th>
-			<th>密码<br>Password</th>
-			<th>混淆<br>obfs</th>
-			<th>混淆参数<br>obfsParam</th>
-			<th>协议参数<br>ProtoParam</th>
+			<th>协议<br>Protocol</th>			
 			<th>备注<br>Remarks</th>
 		</tr>
 		
@@ -146,15 +143,12 @@ def getList():
 			<tr>
 				<td>%s</td>	<!--服务器地址-->
 				<td>%s</td>	<!--端口-->
-				<td>%s</td>	<!--协议-->
-				<td>%s</td>	<!--加密方法-->
 				<td>%s</td>	<!--密码-->
-				<td>%s</td>	<!--混淆-->
-				<td>%s</td>	<!--混淆参数-->
-				<td>%s</td>	<!--协议参数-->
+				<td>%s</td>	<!--加密方法-->
+				<td>%s</td>	<!--协议-->
 				<td>%s</td>	<!--备注-->
 			</tr>
-			'''%(server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks)
+			'''%(server, port, password, method, protocol, remarks)
             #lst_item='<td>服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s</td>'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
             list_sum+=lst_item           
         except Exception as e:
