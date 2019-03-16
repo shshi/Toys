@@ -87,7 +87,8 @@ def getList():
     list_postfix='''
 	</table>
 </body>
-<p style="font-size:14px">------<br>* 使用说明：在<a href = "https://github.com/shadowsocks/shadowsocks-windows/releases" style=" color:#c6a300">https://github.com/shadowsocks/shadowsocks-windows/releases</a>(Windows)<a href = "https://github.com/shadowsocks/ShadowsocksX-NG/releases" style=" color:#c6a300">https://github.com/shadowsocks/ShadowsocksX-NG/releases</a>(MacOS)下载Shadowsocks的最新版zip文件，解压后打开Shadowsocks(Windows)或ShadowsocksX-NG(MacOS)，按照上表对应输入服务器、端口和密码，核对加密方法后确定。在电脑下方托盘找到小飞机图标右击-->点击“启用系统代理”，“系统代理模式”-->“全局模式”。如果小飞机变为蓝色说明翻墙成功，否则重新换一行服务器信息。<br>* 建议添加多个服务器信息，方便用网不畅时切换服务器。右击小飞机图标可切换。</p>
+<p style="font-size:14px">------<br>* 使用说明：在<a href = "https://github.com/shadowsocks/shadowsocks-windows/releases" style=" color:#c6a300">https://github.com/shadowsocks/shadowsocks-windows/releases</a>(Windows)或
+<a href = "https://github.com/shadowsocks/ShadowsocksX-NG/releases" style=" color:#c6a300">https://github.com/shadowsocks/ShadowsocksX-NG/releases</a>(MacOS)下载Shadowsocks的最新版zip文件，解压后打开Shadowsocks(Windows)或ShadowsocksX-NG(MacOS)，按照上表对应输入服务器、端口和密码，核对加密方法后确定。在电脑下方托盘找到小飞机图标右击-->点击“启用系统代理”，“系统代理模式”-->“全局模式”。如果小飞机变为蓝色说明翻墙成功，否则重新换一行服务器信息。<br>* 建议添加多个服务器信息，方便用网不畅时切换服务器。右击小飞机图标可切换。</p>
 <br>
 <br>
 <div align="center" ><a style=" color:black; font-size:30px;">数据不易&nbsp;&nbsp;友情打赏</a></div>
