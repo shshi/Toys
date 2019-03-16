@@ -31,6 +31,7 @@ def getList():
         
         #response = u.urlopen("http://ip.360.cn/IPQuery/ipquery?ip=%s"%ip_visitor).read()
         geo = json.loads(response)
+        print (geo)
         city = geo['city']
         '''index=city.find('\t')
         if index>0:
