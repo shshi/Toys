@@ -75,7 +75,7 @@ def getList():
 			<th>服务器<br>Server Addr.</th>
 			<th>端口<br>Port</th>
 			<th>密码<br>Password</th>			
-			<th width="200">加密方法<br>Encryption</th>
+			<th>加密方法<br>Encryption</th>
 			<th>协议<br>Protocol</th>			
 			<th>备注<br>Remarks</th>
 		</tr>
