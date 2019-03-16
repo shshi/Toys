@@ -92,6 +92,11 @@ def getList():
 <br>* 建议添加多个服务器信息，方便用网不畅时切换服务器。右击小飞机图标可切换。</p>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div align="center" ><a style=" color:black; font-size:30px;">数据不易&nbsp;&nbsp;友情打赏</a></div>
 <br>
 <div align="center"><img src="https://wx4.sinaimg.cn/mw690/4d20f2cfgy1g140et5negj209m09mabr.jpg" width="15%"><img src="https://wx2.sinaimg.cn/mw690/4d20f2cfgy1g140et5ke9j20ee0eemyr.jpg" width="15%"></div>
@@ -102,7 +107,7 @@ def getList():
 <br>
 <br>
 <br>
-<br>
+<br>*12
 <br>'''
     for i in lst:
         try:
