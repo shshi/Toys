@@ -177,8 +177,7 @@ def base64_decode(base64_encode_str):
 
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run().getList()
+    app.run(debug=True).getList()
     print("finished")    
 
 
