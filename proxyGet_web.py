@@ -3,7 +3,7 @@ import flask
 import urllib.request as u
 import base64
 import json
-from flask import request
+from flask import Flask, render_template, request, redirect, url_for
 #from flask_sqlalchemy import SQLAlchemy
 
 app = flask.Flask(__name__)
@@ -39,75 +39,7 @@ def getList():
     except Exception as e:
         print (e)
         city="围城里"
-    list_sum='''
-<!DOCTYPE html>
-<html>
-<head>
-<title>
-	少华的贩枪乐园
-</title>
-</head>
-<body>
-	<h4>嗨，来自%s的朋友，我是少华，以下代理服务器信息每三天自动更新一次，欢迎体验如丝般顺滑的外网感受。</h4>
-	<div>
-	<p>使用方法见表尾，如果有问题请联系：shi.sh@foxmail.com&nbsp;&nbsp;
-	<img src="https://wx4.sinaimg.cn/mw690/4d20f2cfgy1g15lhprtqkj205l04jaa1.jpg" width="25" alt="" style="vertical-align:bottom">
-	<a href = "https://www.weibo.com/omega7" style="color:#4f4f4f;">漂泊的韦恩</a>
-	</p>
-	</div>
-	<style>	
-	table, th, td {
-	font-family: arial, sans-serif;
-	border: 1px solid #dddddd;
-	border-collapse: collapse;
-	}
-
-	table tr:nth-child(odd) {
-	background-color: #eee;
-	height:40px;
-	}
-	table tr:nth-child(even) {
-	background-color: #fff;
-	height:40px;
-	}
-	table th {
-	background-color: #4f4f4f;
-	color: white;
-	height:70px;
-	}	
-	</style>
-	
-	<table>
-		<tr>
-			<th>服务器<br>Server Addr.</th>
-			<th>端口<br>Port</th>
-			<th>密码<br>Password</th>			
-			<th>加密方法<br>Encryption</th>
-			<th>协议<br>Protocol</th>			
-			<th>备注<br>Remarks</th>
-		</tr>		
-'''%city
-    list_postfix='''
-	</table>
-</body>
-<p style="font-size:14px">------<br>* 使用说明：在
-  <a href = "https://github.com/shadowsocks/shadowsocks-windows/releases" style=" color:#4f4f4f">
-  https://github.com/shadowsocks/shadowsocks-windows/releases</a>
-  (Windows)或
-  <a href = "https://github.com/shadowsocks/ShadowsocksX-NG/releases" style=" color:#4f4f4f">
-  https://github.com/shadowsocks/ShadowsocksX-NG/releases</a>
-  (MacOS)下载Shadowsocks的最新版zip文件，解压后打开Shadowsocks，按照上表提供的信息输入对应的服务器、端口和密码，核对加密方法后确定。
-  点击任务栏托盘的小飞机图标，选择“启用系统代理”，“系统代理模式”选择为“全局模式”。打开浏览器验证是否成功，否则重新换一行服务器信息。
-  <br>* 建议添加多个服务器信息，方便用网不畅时快捷切换服务器。
-</p>
-<br>
-<br>
-<div align="center" >
-  <a href = "https://wx2.sinaimg.cn/mw690/4d20f2cfgy1g140et5ke9j20ee0eemyr.jpg" style=" color:#c6a300; font-size:30px;">
-  <img src="https://wx4.sinaimg.cn/mw690/4d20f2cfgy1g15sbcj8wtj20a70fa401.jpg" width="15%"></a>
-</div>
-<br><br><br><br><br>
-<html>'''
+    lst_table=[]
     for i in lst:
         try:
             base64_encode_str = i[6:]
@@ -143,24 +75,15 @@ def getList():
                 remarks=remarks.replace('SSRTOOL_','')
             group = base64_decode(param_dic['group'])
 
-            lst_item='''
-			<tr>
-				<td>%s</td>	<!--服务器地址-->
-				<td>%s</td>	<!--端口-->
-				<td>%s</td>	<!--密码-->
-				<td>%s</td>	<!--加密方法-->
-				<td>%s</td>	<!--协议-->
-				<td>%s</td>	<!--备注-->
-			</tr>
-			'''%(server, port, password, method, protocol, remarks)
-            #lst_item='<td>服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s</td>'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
-            list_sum+=lst_item           
+            dic_item={'server':server, 'port':port, 'password':password, 'method':method, 'protocol':protocol, 'remarks':remarks}
+            #dic_item={server:%s, port:%s, password:%s, method:%s, protocol:%s, remarks:%s}%(server, port, password, method, protocol, remarks)
+            #lst_item='服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s'% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group)
+            lst_table.append(dic_item)
         except Exception as e:
-            #print (e)
-            continue
-    list_sum+=list_postfix
-    #print (list_sum)
-    return list_sum
+            print (e)
+            #continue
+    return render_template('get.html', **locals())
+
 def fill_padding(base64_encode_str):
 
    need_padding = len(base64_encode_str) % 4 != 0
