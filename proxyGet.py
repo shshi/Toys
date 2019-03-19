@@ -24,17 +24,17 @@ def getList():
     #f.write(SSR_list)   
     lst=SSR_list.splitlines()
     #print(lst)
-       
+
+    print ("parsing data...")       
     for i in lst:
         try:
+            f.write(i+'\n')
             parse(i)
             #i=base64.b64decode(str(i[6:])).decode('utf-8')
             #print (i)
         except Exception as e:
-            #print (e)
+            print (e)
             continue
-
-    #f.close()
 
 def parse(ssr):
     base64_encode_str = ssr[6:]
@@ -52,7 +52,7 @@ def parse_ssr(base64_encode_str):
    port = parts[1]
    protocol = parts[2]
    method = parts[3]
-   obfs = parts[4]
+   #obfs = parts[4]
    password_and_params = parts[5]
 
    password_and_params = password_and_params.split("/?")
@@ -68,17 +68,15 @@ def parse_ssr(base64_encode_str):
        key_and_value = part.split('=')
        param_dic[key_and_value[0]] = key_and_value[1]
 
-   obfsparam = base64_decode(param_dic['obfsparam'])
-   protoparam = base64_decode(param_dic['protoparam'])
+   #obfsparam = base64_decode(param_dic['obfsparam'])
+   #protoparam = base64_decode(param_dic['protoparam'])
    remarks = base64_decode(param_dic['remarks'])
    group = base64_decode(param_dic['group'])
 
-   #print("解析结果:")
-
-   print('server: %s, port: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s\n'
-         % (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group))
-   f.write('服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s\n'
-         % (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group))
+   #print('server: %s, port: %s, 协议: %s, 加密方法: %s, 密码: %s, 混淆: %s, 混淆参数: %s, 协议参数: %s, 备注: %s, 分组: %s\n'
+         #% (server, port, protocol, method, password, obfs, obfsparam, protoparam, remarks, group))
+   f.write('服务器地址: %s, 端口: %s, 协议: %s, 加密方法: %s, 密码: %s, 备注: %s, 分组: %s\n'
+         % (server, port, protocol, method, password, remarks, group))
 
 
 def fill_padding(base64_encode_str):
@@ -100,5 +98,5 @@ if __name__ == '__main__':
     f = open("proxyList.log",'w',encoding='utf-8')
     getList()
     f.close()
-    print("All finished")
-    time.sleep(30)
+    print("finished")
+    time.sleep(3)
