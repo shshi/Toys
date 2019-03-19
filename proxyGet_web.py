@@ -18,6 +18,11 @@ def getList():
     SSR_list=base64.b64decode(html).decode('utf-8')
     SSR_list=SSR_list.strip()   
     lst=SSR_list.splitlines()
+    city=getCity()
+    lst_table=parse(lst)
+    return render_template('get.html', **locals())
+
+def getCity():
     try:
         #ip_visitor = request.remote_addr
         if request.headers.getlist("X-Forwarded-For"):
@@ -39,14 +44,17 @@ def getList():
     except Exception as e:
         print (e)
         city="围城里"
+    return city
+
+def parse(lst):
     lst_table=[]
-    for i in lst:
+    for ssr in lst:
         try:
-            base64_encode_str = i[6:]
+            base64_encode_str = ssr[6:]
             decode_str = base64_decode(base64_encode_str)
             parts = decode_str.split(':')
             if len(parts) != 6:
-                print('不能解析SSR链接: %s' % base64_encode_str)
+                    print('不能解析SSR链接: %s' % base64_encode_str)
 
             server = parts[0]
             port = parts[1]
@@ -72,7 +80,7 @@ def getList():
             #protoparam = base64_decode(param_dic['protoparam'])
             remarks = base64_decode(param_dic['remarks'])
             if 'SSRTOOL_' in remarks:
-                remarks=remarks.replace('SSRTOOL_','')
+                    remarks=remarks.replace('SSRTOOL_','')
             group = base64_decode(param_dic['group'])
 
             dic_item={'server':server, 'port':port, 'password':password, 'method':method, 'protocol':protocol, 'remarks':remarks}
@@ -81,8 +89,7 @@ def getList():
             lst_table.append(dic_item)
         except Exception as e:
             print (e)
-            #continue
-    return render_template('get.html', **locals())
+    return lst_table
 
 def fill_padding(base64_encode_str):
 
