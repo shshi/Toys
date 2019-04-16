@@ -13,7 +13,7 @@ class extract():
 		self.id_list = self.sheet1.col_values(3)
 
 	def getList(self):
-		with open('extract.txt','r') as fp:
+		with open('list.txt','r') as fp:
 			self.list=[]
 			self.list.append(self.sheet1.row_values(0))
 			#print (a)
